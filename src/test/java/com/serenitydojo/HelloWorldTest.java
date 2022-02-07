@@ -31,5 +31,9 @@ public class HelloWorldTest {
         String upperCaseFirstName = firstName.toUpperCase();
 
         System.out.println("Upper case first name " + upperCaseFirstName);
+
+        String anotherFirstName = firstName.replace("Sarah", "Merry");
+
+        System.out.println("New replaced first name " + anotherFirstName);
     }
 }
