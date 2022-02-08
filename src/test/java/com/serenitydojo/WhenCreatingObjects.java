@@ -30,7 +30,14 @@ public class WhenCreatingObjects {
     @Test
     public void cat_makes_noise() {
         Cat felix = new Cat("Felix","Tuna", 4);
+        Cat spot = new Cat("Spot","Salmon", 3);
 
         felix.makeNoise();
+        felix.feed("Tuna");
+        felix.groom();
+
+        spot.feed("Salmon");
+
+
     }
 }
