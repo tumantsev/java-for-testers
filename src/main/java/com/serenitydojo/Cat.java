@@ -35,4 +35,9 @@ public class Cat {
     public void setAge(int age) {
         this.age = age;
     }
+
+    public void makeNoise() {
+        System.out.println("Meow");
+    }
 }
+

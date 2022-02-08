@@ -1,6 +1,8 @@
 package com.serenitydojo;
 
 import org.junit.Test;
+import org.junit.Assert;
+
 
 public class WhenCreatingObjects {
 
@@ -19,5 +21,16 @@ public class WhenCreatingObjects {
 
         Cat spot = new Cat("Spot", "Tuna", 3);
 
+        Dog fido = new Dog("Fido","Bone", 5);
+        Assert.assertEquals(fido.getName(), "Fido");
+        Assert.assertEquals(fido.getFavoriteToy(), "Bone");
+        Assert.assertEquals(fido.getAge(), 5);
+    }
+
+    @Test
+    public void cat_makes_noise() {
+        Cat felix = new Cat("Felix","Tuna", 4);
+
+        felix.makeNoise();
     }
 }
