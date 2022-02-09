@@ -37,7 +37,16 @@ public class WhenCreatingObjects {
         felix.groom();
 
         spot.feed("Salmon");
+    }
 
+    @Test
+    public void creating_a_hamster(){
+        String name = "Rusty";
+        String favoriteGame = "wheel";
+        int age = 2;
 
+        Hamster rusty = new Hamster(name, favoriteGame, age);
+
+        System.out.println(name + " favorite game is " + rusty.getFavoriteGame());
     }
 }
