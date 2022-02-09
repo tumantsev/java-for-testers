@@ -32,7 +32,7 @@ public class WhenCreatingObjects {
         Cat felix = new Cat("Felix","Tuna", 4);
         Cat spot = new Cat("Spot","Salmon", 3);
 
-        felix.makeNoise();
+        System.out.println("Felix goes " + felix.makeNoise());
         felix.feed("Tuna");
         felix.groom();
 
@@ -40,7 +40,14 @@ public class WhenCreatingObjects {
     }
 
     @Test
-    public void creating_a_hamster(){
+    public void dog_makes_noise() {
+        Dog fido = new Dog("Fido", "bone", 5);
+
+        System.out.println("Fido goes " + fido.makeNoise());
+    }
+
+    @Test
+    public void creating_a_hamster() {
         String name = "Rusty";
         String favoriteGame = "wheel";
         int age = 2;
@@ -48,5 +55,20 @@ public class WhenCreatingObjects {
         Hamster rusty = new Hamster(name, favoriteGame, age);
 
         System.out.println(name + " favorite game is " + rusty.getFavoriteGame());
+    }
+
+    @Test
+    public void pets_make_noise() {
+
+        Pet felix = new Cat("Felix", 4);
+        Pet fido = new Dog("Fido", "bone", 5);
+        Pet rusty = new Hamster("Rusty", "wheel", 1);
+
+        System.out.println("Felix goes " + felix.makeNoise());
+        System.out.println("Felix goes " + felix.goForWalks());
+        System.out.println("Fido goes " + fido.makeNoise());
+        System.out.println("Fido goes " + fido.goForWalks());
+        System.out.println("Rusty goes " + fido.makeNoise());
+        System.out.println("Rusty goes " + fido.goForWalks());
     }
 }
