@@ -73,6 +73,9 @@ public class WhenCreatingObjects {
 //        assertEquals(fido.play(), "plays with bone");
 //        assertEquals(rusty.play(), "runs in wheel");
 
+        assertEquals("plays with string", felix.play());
+        assertEquals("plays with bone", fido.play());
+        assertEquals("runs in wheel", rusty.play());
     }
 
 }
