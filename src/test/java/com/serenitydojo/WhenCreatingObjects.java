@@ -3,6 +3,11 @@ package com.serenitydojo;
 import org.junit.Test;
 import org.junit.Assert;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 
 public class WhenCreatingObjects {
 
@@ -21,7 +26,7 @@ public class WhenCreatingObjects {
 
         Cat spot = new Cat("Spot", "Tuna", 3);
 
-        Dog fido = new Dog("Fido","Bone", 5);
+        Dog fido = new Dog("Fido", "Bone", 5);
         Assert.assertEquals(fido.getName(), "Fido");
         Assert.assertEquals(fido.getFavoriteToy(), "Bone");
         Assert.assertEquals(fido.getAge(), 5);
@@ -29,8 +34,8 @@ public class WhenCreatingObjects {
 
     @Test
     public void cat_makes_noise() {
-        Cat felix = new Cat("Felix","Tuna", 4);
-        Cat spot = new Cat("Spot","Salmon", 3);
+        Cat felix = new Cat("Felix", "Tuna", 4);
+        Cat spot = new Cat("Spot", "Salmon", 3);
 
         System.out.println("Felix goes " + felix.makeNoise());
         felix.feed("Tuna");
@@ -70,5 +75,42 @@ public class WhenCreatingObjects {
         System.out.println("Fido goes " + fido.goForWalks());
         System.out.println("Rusty goes " + fido.makeNoise());
         System.out.println("Rusty goes " + fido.goForWalks());
+    }
+
+    @Test
+    public void listOfColors() {
+
+        String[] colors = {"red", "green", "blue"};
+        int[] ages = {1, 2, 3};
+
+        String[] moreColors = new String[3];
+        moreColors[0] = "yellow";
+        moreColors[1] = "purple";
+        moreColors[2] = "pink";
+
+        for (int i = 0; i < colors.length; i++) {
+            System.out.println("For loop element " + i + ": " + colors[i]);
+        }
+
+        List<String> newColor = new ArrayList<>();
+
+        newColor.add("red");
+        newColor.add("green");
+        newColor.add("blue");
+
+        for (String someColor : newColor) {
+            System.out.println("Color list array: " + someColor);
+        }
+
+        Set<String> colorsSet = new HashSet<>();
+
+        colorsSet.add("RED");
+        colorsSet.add("GREEN");
+        colorsSet.add("BLUE");
+        colorsSet.add("RED");
+
+        for (String temp : colorsSet) {
+            System.out.println("Color from set: " + temp);
+        }
     }
 }
