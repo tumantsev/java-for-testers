@@ -22,20 +22,20 @@ public class WhenWorkingWithExceptions {
         assertThat(wordCounter.numberOfWordsIn(null)).isEqualTo(0);
     }
 
-    @Test
-    public void shouldCountWordsInAFile() throws IOException {
+    @Test()
+    public void shouldCountWordsInAFile() throws Exception {
         int numberOfWords = wordCounter.numberOfWordsInFile("src/main/resources/hello.txt");
 
         assertThat(numberOfWords).isEqualTo(2);
     }
 
-    @Test
-    public void shouldReportAnErrorIfTheFileDoesBotExist() {
+    @Test(expected = FileHasNoWordsException.class)
+    public void shouldReportAnErrorIfTheFileDoesBotExist() throws Exception {
         int numberOfWords = wordCounter.numberOfWordsInFile("file-that-does-not-exist");
         assertThat(numberOfWords).isEqualTo(0);
     }
 
-    @Test
+    @Test(expected = FileHasNoWordsException.class)
     public void shouldThrowMeaningfulExceptionIfThereAreNoWordsInTheFile() throws Exception {
         wordCounter.numberOfWordsInFile("src/main/resources/no_words.txt");
     }

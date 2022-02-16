@@ -15,16 +15,16 @@ public class WordCounter {
         return value.split("\\W").length;
     }
 
-    public int numberOfWordsInFile(String fileName) {
+    public int numberOfWordsInFile(String fileName) throws IOException, FileHasNoWordsException {
         try {
             String fileContents = Files.readString(Paths.get(fileName));
-            return numberOfWordsIn(fileContents);
+            int wordCount = numberOfWordsIn(fileContents);
+            if (wordCount == 0) {
+                throw new FileHasNoWordsException("No words found in a file " + fileName);
+            }
+            return wordCount;
         } catch (NoSuchFileException noSuchFile) {
-            return 0;
-        } catch (IOException noSuchFile) {
-            return -1;
-        } finally {
-            System.out.println("FILE PROCESSED FOR " + fileName);
+            throw new FileHasNoWordsException("No words found in the non-existent file " + fileName);
         }
     }
 }
