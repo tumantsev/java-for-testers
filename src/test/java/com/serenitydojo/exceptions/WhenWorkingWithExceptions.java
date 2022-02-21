@@ -29,8 +29,8 @@ public class WhenWorkingWithExceptions {
         assertThat(numberOfWords).isEqualTo(2);
     }
 
-    @Test(expected = FileHasNoWordsException.class)
-    public void shouldReportAnErrorIfTheFileDoesBotExist() throws Exception {
+    @Test//(expected = FileHasNoWordsException.class)
+    public void shouldReportAnErrorIfTheFileDoesNotExist() throws Exception {
         int numberOfWords = wordCounter.numberOfWordsInFile("file-that-does-not-exist");
         assertThat(numberOfWords).isEqualTo(0);
     }
