@@ -7,6 +7,7 @@ import java.io.IOException;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ExceptionHandlingExercises {
+    FileLoader fileLoader = new FileLoader();
 
     // - Handle a declared exception
     // - Catch a declared exception and return a value
@@ -21,7 +22,6 @@ public class ExceptionHandlingExercises {
      */
     @Test
     public void workingWithDeclaredExceptions() throws IOException {
-        FileLoader fileLoader = new FileLoader();
         assertThat(fileLoader.readHelloWorld()).isEqualTo("Hello World");
     }
 
@@ -31,14 +31,12 @@ public class ExceptionHandlingExercises {
      * does not contain the excepted text, or if the file does not exist.
      */
     @Test
-    public void catchingExceptions() {
-        FileLoader fileLoader = new FileLoader();
+    public void catchingExceptions() throws IOException {
         assertThat(fileLoader.fileContainsText("hello.txt","Hello World")).isTrue();
     }
 
     @Test
-    public void catchingExceptionsWhenTheFileDoesNotExist() {
-        FileLoader fileLoader = new FileLoader();
+    public void catchingExceptionsWhenTheFileDoesNotExist() throws IOException {
         assertThat(fileLoader.fileContainsText("does-not-exist.txt","Hello World")).isFalse();
     }
 
@@ -48,8 +46,7 @@ public class ExceptionHandlingExercises {
      * and update the fileHasText() method to throw this exception if no matching file is found.
      */
     @Test(expected = MissingWelcomeFileException.class)
-    public void catchingCustomExceptionsWhenTheFileDoesNotExist() {
-        FileLoader fileLoader = new FileLoader();
+    public void catchingCustomExceptionsWhenTheFileDoesNotExist() throws Exception {
         assertThat(fileLoader.fileHasText("does-not-exist.txt","Hello World")).isFalse();
     }
 }
